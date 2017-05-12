@@ -35,6 +35,8 @@ public class AccountEmailServiceImpl implements AccountEmailService {
 			msgHelper.setTo(to);
 			msgHelper.setSubject(subject);
 			msgHelper.setText(htmlText, true);
+			
+			javaMailSender.send(msg);
 		} catch (MessagingException e) {
 			throw new AccountEmailException("Fail to send mail.", e);
 		}
